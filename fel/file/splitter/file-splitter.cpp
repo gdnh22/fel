@@ -16,8 +16,12 @@ namespace fel
 
 		}
 
-		int file_splitter::open()
+		int file_splitter::open(const std::string& _file, pcall pf)
 		{
+			for (auto i = 0; i < 10; i++)
+			{
+				pf("abc", i);
+			}
 			return 0;
 		}
 

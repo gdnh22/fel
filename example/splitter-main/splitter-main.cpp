@@ -2,15 +2,30 @@
 //
 
 #include <iostream>
+#include <string>
+#include <sstream>
 #include "../../fel/file/splitter/file-splitter.h"
 namespace ff = fel::file;
 
+int callf(const char* p, int len)
+{
+	std::stringstream ss;
+
+	ss << "=" << p << std::endl;
+	std::cout << ss.str() << std::endl;
+
+	return 0;
+}
+
+
 int main(int argc, char* argv[])
 {
-	std::cout << "Hello World!\n";
+	//std::cout << "Hello World!\n";
+	std::string file1("../txt/a.txt");
+
 
 	ff::file_splitter fs;
-	fs.open();
+	fs.open(file1, callf);
 
 	fs.close();
 	return getchar();

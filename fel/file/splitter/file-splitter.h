@@ -3,19 +3,21 @@
 // g++ -o test.exe -std=c++20 -g
 
 #include <iostream>
-#include <cstring>
+#include <string>
 
 namespace fel
 {
 	namespace file
 	{
+		typedef int(*pcall)(const char*, int);
+
 		class file_splitter
 		{
 		public:
 			file_splitter();
 			~file_splitter();
 
-			int open();
+			int open(const std::string& _file, pcall pf);
 			int close();
 		};
 	};
