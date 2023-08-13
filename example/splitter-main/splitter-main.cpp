@@ -14,6 +14,7 @@ int callf(const char* p, int len)
 	ss << "=" << p << " =" << len << std::endl;
 	std::cout << ss.str() << std::endl;
 
+	ss.str("");
 	return 0;
 }
 

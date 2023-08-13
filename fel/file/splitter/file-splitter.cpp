@@ -42,21 +42,25 @@ namespace fel
 			//countn = fs::file_size(fp, err);
 
 			ss.str("");
-			ss << "file size:" << countn << std::endl;
-			std::cout << ss.str() << std::endl;
+			ss << "file size:" << countn << std::endl;			//std::cout << ss.str() << std::endl;
 
+			std::unique_ptr<char> p(new char[countn] {0});
 			while (0 < countn)
 			{
+				memset(p.get(), 0, countn);
 				if (countn < splite_size)
 				{
-					pf("a", static_cast<int>(countn));
+					fp.read(p.get(), countn);
+					pf(p.get(), static_cast<int>(countn));
 					break;
 				}
 				current_len = splite_size;
 				countn -= splite_size;
-				pf("b", current_len);
+				fp.read(p.get(), current_len);
+				pf(p.get(), current_len);
 			}
 
+			fp.close();
 			return 0;
 		}
 
