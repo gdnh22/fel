@@ -44,10 +44,13 @@ namespace fel
 			ss.str("");
 			ss << "file size:" << countn << std::endl;			//std::cout << ss.str() << std::endl;
 
-			std::unique_ptr<char> p(new char[countn] {0});
+			std::unique_ptr<char> p(new char[countn] {});
+			//std::shared_ptr<char> p(new char[countn] {});
+			//std::unique_ptr<char> p = std::make_unique<char>(countn);
 			while (0 < countn)
 			{
-				memset(p.get(), 0, countn);
+				//std::fill_n(p.get(), countn, char{});
+				memset(p.get(), 0x00, countn);
 				if (countn < splite_size)
 				{
 					fp.read(p.get(), countn);

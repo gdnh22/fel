@@ -11,7 +11,7 @@ int callf(const char* p, int len)
 {
 	std::stringstream ss;
 
-	ss << "=" << p << " =" << len << std::endl;
+	ss << "=" << p << " hex=" << std::hex << p[3] << " len=" << len << std::endl;
 	std::cout << ss.str() << std::endl;
 
 	ss.str("");
@@ -22,11 +22,12 @@ int callf(const char* p, int len)
 int main(int argc, char* argv[])
 {
 	//std::cout << "Hello World!\n";
-	std::string file1("../txt/a.txt");
-
+	//std::string file1("../txt/a.txt");
+	std::string file1("../txt/b.txt");
 
 	ff::file_splitter fs;
-	int split = 2;//2 5
+	int split = atoi(argv[1]);//2 5
+	//split = 5;//2 5
 	fs.open(file1, split, callf);
 
 	fs.close();
