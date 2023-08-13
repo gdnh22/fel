@@ -9,6 +9,7 @@ namespace fel
 {
 	namespace file
 	{
+		// 1-buf 参数2-当前块长度
 		typedef int(*pcall)(const char*, int);
 
 		class file_splitter
@@ -17,8 +18,11 @@ namespace fel
 			file_splitter();
 			~file_splitter();
 
-			int open(const std::string& _file, pcall pf);
+			int open(const std::string& _file, int split_size, pcall pf);
 			int close();
+
+		private:
+			int m_split_size;
 		};
 	};
 };

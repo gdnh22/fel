@@ -1,5 +1,5 @@
 ﻿// splitter-main.cpp : 此文件包含 "main" 函数。程序执行将在此处开始并结束。
-//
+// 完成后reward game prince of persia
 
 #include <iostream>
 #include <string>
@@ -11,7 +11,7 @@ int callf(const char* p, int len)
 {
 	std::stringstream ss;
 
-	ss << "=" << p << std::endl;
+	ss << "=" << p << " =" << len << std::endl;
 	std::cout << ss.str() << std::endl;
 
 	return 0;
@@ -25,7 +25,8 @@ int main(int argc, char* argv[])
 
 
 	ff::file_splitter fs;
-	fs.open(file1, callf);
+	int split = 2;//2 5
+	fs.open(file1, split, callf);
 
 	fs.close();
 	return getchar();
